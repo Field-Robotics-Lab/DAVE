@@ -12,9 +12,9 @@
     <arg name="yaw" default="-1.8"/>
     
 
-
+      <!-- Choose the version of the smilodon UUV that starts its own instance of the transient current plugin-->
      <param name="/$(arg namespace)/robot_description"
-           command="$(find xacro)/xacro '$(find smilodon_gazebo)/urdf/smilodon_gazebo.xacro' --inorder
+           command="$(find xacro)/xacro '$(find uuv_dave)/urdf/smilodon_gazebo_transient_current.xacro' --inorder
 		    debug:=$(arg debug)
 		    namespace:=$(arg namespace)
 		    inertial_reference_frame:=world" />
