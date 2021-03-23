@@ -69,3 +69,10 @@ This changelog covers the entire dave project which includes a few repositories,
 - Documentation, descriptions and tutorials
   - [Multibeam Forward Looking Sonar](https://github.com/Field-Robotics-Lab/dave/wiki/Multibeam-Forward-Looking-Sonar)
   - [Clone source repositories](https://github.com/Field-Robotics-Lab/dave/wiki/Clone-Dave-Repositories)
+
+## [3.1.1] - 2021-03-23
+
+### Added
+
+### Update
+- Moved docker, docs, repos, and tutorial_pictures directories to a new extras directory to consolidate all of the non-ROS portions of the repository into a single subdirectory
