@@ -63,26 +63,27 @@
     </gazebo>
   </xacro:rexrov_base>
 
-  <xacro:oberon7 namespace="oberon7" parent="$(arg namespace)/base_link">
+  <!-- <xacro:oberon7 namespace="oberon7" parent="$(arg namespace)/base_link">
     <origin xyz="1.3 -0.5 -0.615" rpy="0 0 0"/>
-  </xacro:oberon7>
+  </xacro:oberon7> -->
 
-  <gazebo>
+  <!-- <gazebo>
       <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
         <robotNamespace>/$(arg namespace)</robotNamespace>
         <robotParam>/$(arg namespace)/robot_description</robotParam>
       </plugin>
-  </gazebo>
+  </gazebo> -->
 
-  <!-- Joint state publisher plugin -->
-  <xacro:default_joint_state_publisher namespace="$(arg namespace)" update_rate="50"/>
 
   <!-- Multibeam sonar (oculus_1200d) -->
   <xacro:include filename="$(find nps_uw_multibeam_sonar)/urdf/dave_multibeam_oculus_m1200d.xacro"/>
   <xacro:dave_multibeam_oculus_m1200d
-    name="oculus_m1200d" xyz="0 0 0" rpy="0 0 0" joint_xyz="1.4 0 -0.4" joint_rpy="0 1.2 0"
-    robot_link="${namespace}/base_link"
+    name="oculus_m1200d" xyz="0 0 0" rpy="0 0 0" joint_xyz="1.41 0 0.5" joint_rpy="0 0.4 0"
+    robot_link="$(arg namespace)/base_link" ray_visual="true"
     update_rate="10.0" raySkips="0" plotScaler="10" sensorGain="0.1" maxDistance="10"
     constantReflectivity="true" reflectivityDatabaseFile=""/>
+
+  <!-- Joint state publisher plugin -->
+  <xacro:default_joint_state_publisher namespace="$(arg namespace)" update_rate="50"/>
 
 </robot>
