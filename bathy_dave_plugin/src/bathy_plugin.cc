@@ -239,8 +239,6 @@ namespace gazebo
               {
                 bathy->last_update = now;
 
-                gzdbg << "Update bathy!" << std::endl;
-
                 // Get the geographic coordinates.
                 // Use our geographic transformation, not gazebo's since our
                 // projection could be different.
