@@ -1,21 +1,14 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.8)
 project(dave_worlds)
 
-if(NOT "${CMAKE_VERSION}" VERSION_LESS "3.16")
-    set(CMAKE_CXX_STANDARD 17)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-else()
-    add_compile_options(-std=c++11)
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-find_package(catkin REQUIRED COMPONENTS
-  gazebo_plugins
-  uuv_sensor_ros_plugins
-  ds_sim)
-
-catkin_package()
+find_package(ament_cmake REQUIRED)
 
 install(DIRECTORY media worlds
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        DESTINATION share/${PROJECT_NAME}
         PATTERN "*~" EXCLUDE)
 
+ament_package()
